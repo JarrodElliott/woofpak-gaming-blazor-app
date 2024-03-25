@@ -1,0 +1,62 @@
+﻿@page "/Tournaments"
+
+@using WoofpakGamingSiteServerApp.Data.Services
+@using WoofpakGamingSiteServerApp.Data
+@inject TournamentService TournamentService
+<div class="px-4 py-4 text-center wpk-home-img" style="background-color: var(--wpk-secondary);">
+    <div class="wpk-page-content">
+        <div class="wpk-header wpk-drop-shdw " style="color: var(--wpk-highlight)">Tournaments</div>
+
+    </div>
+    <div class="col-lg-6 mx-auto">
+        @if (tournaments == null)
+        {
+            <p><em>Loading...</em></p>
+        }
+        else
+        {
+                @foreach (var tournament in tournaments)
+                {
+                <div>
+                    <Card Title="@tournament.Title" Actions="@(new[] {
+                                                bracketAction(()=> OnClick(tournament.Id.ToString()))})">
+                        <Extra>
+                            <a href="Tournaments?=@tournament.Id">More</a>
+                        </Extra>
+                        <Body>
+                            <p>@tournament.Description</p>
+                        </Body>
+
+                    </Card>
+                </div>
+                }
+
+        }
+    </div>
+
+
+
+
+</div>
+
+@code {
+    private List<Tournament> tournaments;
+
+    protected override async Task OnInitializedAsync()
+    {
+        tournaments = await TournamentService.GetTournaments();
+    }
+
+    RenderFragment bracketAction(Action clickAction) =>@<Icon Type="apartment" Theme="outline" OnClick="@clickAction" />;
+
+
+
+RenderFragment avatarTemplate = @<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></Avatar>;
+
+RenderFragment coverTemplate = @<img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />;
+
+void OnClick(string icon)
+{
+Console.WriteLine($"icon {icon} is clicked");
+}
+}

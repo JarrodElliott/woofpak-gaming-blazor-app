@@ -1,0 +1,47 @@
+﻿<Header Class="header">
+
+    <div class="wpk-top-bar">
+        <Row Wrap="false" Class="flex-fill">
+            <Col class="wpk-nav-col">
+            <a class="logoDiv" href="/">
+                <div class="logo">
+                    <img src="/css/img/LogoWoofpak.svg" />
+                </div>
+                <div class="logoWords">
+                    <img src="/css/img/LogoText.svg" />
+                </div>
+            </a>
+            </Col>
+            <Col class="wpk-nav-col">
+            <div class="wpk-navbar navbar-expand-lg ">
+                <NavLink href="/ExtraLife" class="nav-tab" Match="NavLinkMatch.All">
+                    <div>Extra Life Event</div>
+                </NavLink>
+                <NavLink href="/ExtraLifeStreams" class="nav-tab" Match="NavLinkMatch.All">
+                    <div>Extra Life Streams</div>
+                </NavLink>
+                @*<NavLink href="/Tournaments" class="nav-tab" Match="NavLinkMatch.All">
+                    <div>Tournaments</div>
+                </NavLink>
+                <NavLink href="/Raffles" class="nav-tab" Match="NavLinkMatch.All">
+                    <div>Raffles</div>
+                </NavLink>*@
+                <AuthorizeView Roles="Administrator">
+                    <NavLink href="/AdministratorDashboard" class="nav-tab" Match="NavLinkMatch.All">
+                        <div>Administrator Dashboard</div>
+                    </NavLink>
+                </AuthorizeView>
+
+            </div>
+            </Col>
+
+            <Col Flex="1" class="wpk-nav-col">
+            <div class="wpk-nav-right">
+                <div class="nav-login-info">
+                    <LoginDisplay />
+                </div>
+            </div>
+            </Col>
+        </Row>
+    </div>
+</Header>

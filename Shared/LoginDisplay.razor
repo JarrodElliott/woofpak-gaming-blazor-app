@@ -1,0 +1,15 @@
+﻿@inject NavigationManager Navigation
+
+<AuthorizeView>
+    <Authorized>
+        <a class="wpk-highlight-text wpk-pad-10" href="/Account/Manage">Hello, @context.User.Identity.Name!</a>
+        <form class="wpk-pad-10" method="post" action="Identity/Account/LogOut" style="display: inline;">
+            <button type="submit" class="btn wpk-btn-highlight-fill">Log out</button>
+        </form>
+    </Authorized>
+    <NotAuthorized>
+        <a class="btn wpk-btn-highlight-outline" href="Login" role="button">Sign in</a>
+        <a class="btn wpk-btn-highlight-fill" href="Register" role="button">Sign up</a>
+    </NotAuthorized>
+</AuthorizeView>
+

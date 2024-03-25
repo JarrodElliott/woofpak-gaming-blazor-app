@@ -1,0 +1,510 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Open+Sans&display=swap');
+
+:root {
+    --wpk-primary: #2F5D62;
+    --wpk-secondary: #EFF4FA;
+    --wpk-dark: #262B2B;
+    --wpk-highlight: #FFB037;
+    --font-family-sans-serif: 'Teko';
+    --nav-height: 64px;
+}
+
+@font-face {
+    font-family: "Teko";
+    src: url('fonts/teko-light.otf');
+}
+
+@font-face {
+    font-family: "Teko";
+    src: url('fonts/teko-medium.otf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans', sans-serif;
+    /*src: url('fonts/teko-medium.otf');*/
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Nunito', sans-serif;
+    font-weight: normal;
+}
+
+body {
+    font-family: Nunito !important;
+    font-weight: normal !important;
+    font-size: 1em !important;
+}
+
+html, body {
+    font-family: Teko;
+    font-weight: lighter;
+    font-size: 1.2em;
+}
+
+a, .btn-link {
+    color: #0366d6;
+
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.content {
+
+}
+
+body::-webkit-scrollbar {
+    width: 1em;
+    background: transparent;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--wpk-dark);
+    outline: 1px solid var(--wpk-primary);
+}
+
+body > h1, h2, h3, h4, h5, h6{
+    font-family : Teko;
+}
+
+body > p, a {
+    font-family: Nunito;
+}
+
+a {
+    color: var(--wpk-secondary) !important;
+    text-decoration: underline !important;
+    /*font-weight: bold !important;*/
+}
+
+
+
+
+.wpk-highlight-link {
+    color: var(--wpk-highlight) !important;
+    text-decoration: underline !important;
+    font-weight: bold !important;
+}
+
+card > a {
+    color: var(--wpk-secondary) !important;
+    text-decoration: underline !important;
+    /*font-weight: bold !important;*/
+}
+.wpk-pad-nav {
+    margin-top: var(--nav-height);
+}
+
+.wpk-page-content {
+    /*overflow-y:scroll;*/
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+    /*This starts Custom*/
+
+.wpk-top-bar {
+    max-height: var(--nav-height);
+    background-color: var(--wpk-primary);
+    background-image: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0) 70%);
+    display: flex;
+    align-items: stretch;
+    color: white;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.4);
+    padding: 0 3rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+
+.logoDiv {
+    display: flex;
+    align-items: center;
+
+    margin: 0 28px 0 0;
+    float: left;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+
+}
+
+    .logo > img {
+        margin: 5px;
+        height: 54px;
+    }
+
+.logoWords {
+    display: flex;
+    align-items: center;
+}
+
+    .logoWords > img {
+        margin: 5px;
+        height: 34px;
+    }
+
+.nav-tab {
+    margin: 0;
+    padding: 0rem 1.8rem;
+    display: inline-block;
+    background-color: rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    position: relative;
+    /*   text-transform: uppercase;*/
+    transition: 0.2s ease-out;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    text-decoration: none !important;
+}
+
+
+    .nav-tab:hover {
+        color: white;
+        text-decoration: none;
+        background-color: rgba(255,255,255,0.3);
+    }
+
+    .nav-tab.active {
+        background-color: rgba(255,255,255,0.2);
+        color: #fff2cc;
+    }
+
+    .nav-tab img {
+        height: 2rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .nav-tab.active img {
+        filter: brightness(0) saturate(100%) invert(93%) sepia(18%) saturate(797%) hue-rotate(316deg) brightness(109%) contrast(101%);
+    }
+
+    .nav-tab.active:after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        z-index: 1;
+        width: 0px;
+        height: 0px;
+        border-left: 0.6rem solid transparent;
+        border-right: 0.6rem solid transparent;
+        border-top: 1rem solid #2f5d62;
+    }
+
+.nav-login-info {
+    align-items: center;
+    margin: 0 0 0 28px;
+    float: right;
+}
+
+.wpk-nav-right{
+
+}
+.jumbotron {
+    /*color: var(--wpk-highlight);
+    background-color: var(--wpk-dark);*/
+    /*background-image: url("https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c");*/
+    /*background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;*/
+    width: 95%;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: var(--wpk-secondary);
+}
+
+.wpk-header {
+    font-family: Teko;
+    font-weight: normal;
+    /*font-size: 8.5rem;*/
+    font-size: 7vw;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.wpk-drop-shdw {
+    /*text-shadow: 6px 6px 10px lightgrey;*/
+    text-shadow: 6px 6px 30px black
+}
+
+.wpk-navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.wpk-home-img {
+    background: url('/css/img/media/daniel-leone-mountains.jpg') no-repeat center fixed;
+    background-size: cover;
+    height: 100%;
+    
+}
+
+.wpk-btn-default {
+    background-color: #2F3E48;
+    color: #FFF;
+    border-color: #2F3E48;
+}
+
+.wpk-btn-default:hover, .wpk-default:focus, .wpk-default:active, .wpk-default.active, .open .dropdown-toggle.wpk-default {
+    background-color: #2F3E48;
+    color: #FFF;
+    border-color: #31347B;
+}
+
+.wpk-btn-highlight-outline {
+    color: var(--wpk-highlight);
+    border-color: var(--wpk-highlight);
+}
+
+    .wpk-btn-highlight-outline:hover, .wpk-highlight-outline:focus, .wpk-highlight-outline:active, .wpk-highlight-outline.active, .open .dropdown-toggle.wpk-highlight-outline {
+         color: var(--wpk-highlight) !important;
+        border-color: var(--wpk-secondary);
+    }
+
+.wpk-btn-highlight-fill {
+    background-color: var(--wpk-highlight);
+    color: var(--wpk-dark);
+    border-color: var(--wpk-highlight);
+}
+
+    .wpk-btn-highlight-fill:hover, .wpk-highlight-fill:focus, .wpk-highlight-fill:active, .wpk-highlight-fill.active, .open .dropdown-toggle.wpk-highlight-fill {
+        background-color: var(--wpk-secondary);
+        color: var(--wpk-highlight) !important;
+        border-color: var(--wpk-secondary);
+    }
+
+
+.wpk-nav-col {
+    inline-size: max-content;
+}
+
+.wpk-dark-bg{
+    background-color:var(--wpk-dark);
+}
+
+.wpk-primary-bg {
+    background-color: var(--wpk-primary);
+}
+
+.wpk-secondary-bg {
+    background-color: var(--wpk-secondary);
+}
+
+.wpk-highlight-bg {
+    background-color: var(--wpk-highlight);
+}
+
+.wpk-highlight-text{
+    color: var(--wpk-highlight);
+}
+
+.wpk-primary-text {
+    color: var(--wpk-primary);
+}
+
+.wpk-dark-text {
+    color: var(--wpk-dark);
+}
+
+.wpk-secondary-text {
+    color: var(--wpk-secondary);
+}
+
+.wpk-footer{
+}
+
+.wpk-footer-map {
+    padding-bottom: 16px;
+}
+
+.wpk-full-width-section {
+    width: 100%;
+}
+
+.wpk-full-height {
+    min-height: 100% !important;
+}
+.wpk-1w-section {
+    width: 25vw;
+    margin: auto;
+}
+
+.wpk-2w-section {
+    width: 50vw;
+    margin: auto;
+}
+
+.wpk-3w-section {
+    width: 75vw;
+    margin: auto;
+}
+
+.wpk-logo-lg {
+    width: 18vw; 
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+
+.wpk-layout-media .wpk-layout-title {
+    color: var(--wpk-highlight);
+    font-family: var(--font-family-sans-serif);
+    font-weight: 200;
+    font-size: 1.6em;
+}
+
+.wpk-layout-multicolumn .wpk-layout-image {
+    transition: all 0.3s ease-out;
+}
+
+.wpk-page-section-header .wpk-page-section-title {
+    font-size: 4em;
+    font-family: var(--font-family-sans-serif);
+    font-weight: 200;
+    color: var(--wpk-secondary);
+}
+
+.wpk-page-section-header .wpk-page-section-text {
+    color: var(--wpk-secondary);
+    font-size: 1.2em;
+    font-weight: 200;
+}
+
+.wpk-page-section{
+
+}
+
+.wpk-flex {
+    display: flex;
+}
+
+.wpk-30w-section{
+    width: 30vw;
+    margin: auto;
+}
+
+.wpk-80p{
+    width: 80%;
+    margin:auto;
+}
+
+
+.wpk-border-round-1{
+    border-radius: 5px;
+}
+
+.wpk-pad-10{
+    padding: 10px;
+}
+
+.form-validation-summary ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+
+.wpk-media-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.wpk-media-panel {
+    right: auto;
+    left: 0;
+    background-position: right center;
+}
+
+.wpk-media-panel img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+.wpk-footer a{
+    text-decoration: underline;
+    color: var(--wpk-secondary);
+    
+}
+
+.wpk-footer a:hover {
+    color: var(--wpk-highlight);
+}

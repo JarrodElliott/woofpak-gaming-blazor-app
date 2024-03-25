@@ -1,0 +1,72 @@
+﻿@page "/ExtraLifeStreams"
+
+@using WoofpakGamingSiteServerApp.Data.Services
+@inject ApplicationUserManager _userManager
+<div class="px-4 py-4 text-center" style="background-color: var(--wpk-primary);">
+    <div class="wpk-page-content">
+        <div class="wpk-header wpk-drop-shdw " style="color: var(--wpk-highlight)">
+            Extra Life Streams
+        </div>
+        <div class="wpk-30w-section">
+            @if (Streamers == null)
+            {
+                <p><em>Loading...</em></p>
+            }
+            else
+            {
+                @foreach (var s in Streamers)
+                {
+                    @*<a href="https://www.twitch.tv/@s.TwitchUsername">*@
+                    <Card Actions="@(new[] {streamerAction(s.UserName)})">
+
+                        <TitleTemplate>
+                            <CardMeta AvatarTemplate="@avatarTemplate(s.UserName)" TitleTemplate="@titleTemplate(s.UserName)" />
+                        </TitleTemplate>
+                        <ChildContent>
+                        </ChildContent>
+                        @*<Extra>
+                                <a class="wpk-highlight-link" href="https://www.twitch.tv/@s.TwitchUsername">View Channel</a>
+                            </Extra>*@
+                        <Body>
+                            <p>@s.TwitchDescription</p>
+                        </Body>
+
+                    </Card>
+                    @*</a>*@
+                }
+
+            }
+
+        </div>
+    </div>
+</div>
+
+@code {
+
+
+    IEnumerable<ApplicationUser> Streamers = new List<ApplicationUser>();
+    bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Run(LoadStreamers);
+        isLoading = false;
+    }
+
+    private async void LoadStreamers()
+    {
+        Streamers = await _userManager.LoadExtraLifeStreamersAsync();
+
+    }
+
+    RenderFragment streamerAction(string streamLink) =>@<a class="wpk-highlight-link" href="https://www.twitch.tv/@streamLink">View Channel</a>;
+    RenderFragment avatarTemplate(string name) => @<Avatar Style="background-color: var(--wpk-highlight)">@name[0] </Avatar>;
+
+    RenderFragment titleTemplate(string name) => @<Title Style="font-size: large; vertical-align:central">@name</Title>;
+
+void OnClick(string icon)
+{
+
+}
+
+}

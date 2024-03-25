@@ -1,0 +1,55 @@
+﻿@page "/Register"
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+<div class="px-4 py-4 text-center wpk-home-img" style="background-color: var(--wpk-secondary); min-height: calc(100vh - 64px);">
+    <div class="wpk-30w-section wpk-secondary-bg wpk-border-round-1 wpk-pad-10" style="min-width: 350px;">
+        <div class="wpk-80p">
+            <h4 class="px-1">Create a new account</h4>
+            <hr />
+            <div style="text-align:left">
+                <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Input.Email"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Username"></label>
+                        <input asp-for="Input.Username" class="form-control" />
+                        <span asp-validation-for="Input.Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Password"></label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.ConfirmPassword"></label>
+                        <input asp-for="Input.ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.SignUpForEmails"></label>
+                        <input asp-for="Input.SignUpForEmails" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+
+                    <div class="form-group">
+                        <hr />
+                        <p>
+                            <a class="wpk-highlight-text" href="Login">Already have an account? Sign in.</a>
+                        </p>
+                     </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

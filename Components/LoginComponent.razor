@@ -1,0 +1,77 @@
+﻿@using System.ComponentModel.DataAnnotations;
+@inject NavigationManager Navigation
+@inject Component_Models.LoginComponentModel Model
+
+<div class="px-4 text-center wpk-home-img flex-grow-1" style="background-color: var(--wpk-secondary);">
+    <div class="py-3">
+        @*<Form Loading="isLoading" Model="@model"
+                  OnFinish="OnFinish"
+                  OnFinishFailed="OnFinishFailed">
+                <div class="wpk-1w-section">
+                    <FormItem Label="Email">
+                        <Input @bind-Value="@context.Email" />
+                    </FormItem>
+                    <FormItem Label="Password">
+                        <InputPassword @bind-Value="@context.Password" />
+                    </FormItem>
+                    <FormItem>
+                        <Button Type="@ButtonType.Primary" HtmlType="submit">
+                            Submit
+                        </Button>
+                    </FormItem>
+                </div>
+            </Form>*@
+
+        @*<form id="account" method="post">
+                <h4>Use a local account to log in.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    </p>
+                    <p>
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                    </p>
+                </div>
+            </form>*@
+
+        
+    </div>
+
+</div>
+@code
+{
+    bool isLoading = true;
+    NavigationManager NavigationManager;
+    protected override async Task OnInitializedAsync()
+    {
+        isLoading = false;
+    }
+
+
+    private void OnFinish(EditContext editContext)
+    {
+    }
+
+    private void OnFinishFailed(EditContext editContext)
+    {
+    }
+
+}

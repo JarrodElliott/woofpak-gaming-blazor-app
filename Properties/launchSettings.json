@@ -1,0 +1,38 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:9479",
+      "sslPort": 44312
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "WoofpakGamingSiteServerApp": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "sqlDebugging": true,
+      "dotnetRunMessages": "true",
+      "nativeDebugging": true,
+      "applicationUrl": "http://localhost:5000"
+    },
+    "WoofpakGamingSiteServerAppProd": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "dotnetRunMessages": "true",
+      "applicationUrl": "http://localhost:5001;http://localhost:5000"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+﻿@page "/Account/Manage"
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<div class="px-4 py-4 text-center" style="background-color: var(--wpk-secondary); min-height: calc(100vh - 64px);">
+    <div class="wpk-30w-section wpk-secondary-bg wpk-border-round-1 wpk-pad-10" style="min-width: 350px;">
+        <div class="wpk-80p">
+            <h4 class="wpk-highlight-text">@ViewData["Title"]</h4>
+
+            <partial name="_StatusMessage" model="Model.StatusMessage" />
+            <div>
+                <div>
+                    <form id="profile-form" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Username"></label>
+                            <input asp-for="Username" class="form-control" disabled />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control" disabled />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EmailConfirmed"></label>
+                            <input asp-for="EmailConfirmed" class="form-control" disabled />
+                            @if (!Model.EmailConfirmed)
+                            {
+                                <p>
+                                    <a id="resend-confirmation" class="wpk-highlight-link" href="/ResendEmailConfirmation">Resend email confirmation</a>
+                                </p>
+                            }
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Input.AllowWoofpakEmails"></label>
+                            <input asp-for="Input.AllowWoofpakEmails" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="WoofpakKey"></label>
+                            <input asp-for="WoofpakKey" class="form-control" disabled />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Input.TwitchUsername"></label>
+                            <input asp-for="Input.TwitchUsername" class="form-control" />
+                            <span asp-validation-for="Input.TwitchUsername" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Input.TwitchDescription"></label>
+                            <input asp-for="Input.TwitchDescription" class="form-control" />
+                            <span asp-validation-for="Input.TwitchDescription" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Input.StreamingForExtraLife"></label>
+                            <input asp-for="Input.StreamingForExtraLife" class="form-control" />
+                        </div>
+
+                        @*<div class="form-group">
+            <input asp-for="ProfilePhoto" class="form-control" />
+
+            <label for="img">Upload Profile Image:</label>
+            <input type="file" name="file" id="file" style="width: 100%;" />
+            <input asp-for="NewProfilePhoto" type="file" id="img" name="img" accept="image/*" class="form-control">
+        </div>
+                        *@
+                        <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+
+    </script>
+
+}

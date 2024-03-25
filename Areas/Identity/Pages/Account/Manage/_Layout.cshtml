@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Hosting
+@using Microsoft.AspNetCore.Mvc.ViewEngines
+@inject IWebHostEnvironment Environment
+@inject ICompositeViewEngine Engine
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Woofpak Gaming</title>
+    @*<link rel="stylesheet" href="~/Identity/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/Identity/css/site.css" />
+    <link href="/css/site.css" rel="stylesheet" />
+    <link href="/css/Animations.css" rel="stylesheet" />
+    <link href="/WoofpakGamingSiteServerApp.styles.css" rel="stylesheet" />
+    <link href="/_content/AntDesign/css/ant-design-blazor.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" />
+
+    <script src="/_content/AntDesign/js/ant-design-blazor.js"></script>
+    @Html.Partial("_Favicons")
+</head>
+<body style="height: calc(100% - var(--nav-height));">
+    <Header Class="wpk-top-bar" style="height:64px;">
+
+        <Row Wrap="false" Class="flex-fill">
+            <Col class="wpk-nav-col">
+            <a class="logoDiv" href="/">
+                <div class="logo">
+                    <img src="/css/img/LogoWoofpak.svg" />
+                </div>
+                <div class="logoWords">
+                    <img src="/css/img/LogoText.svg" />
+                </div>
+            </a>
+            </Col>
+
+        </Row>
+    </Header>
+    <div class="wpk-pad-nav wpk-full-height" style="background-color: var(--wpk-dark);">
+        @RenderBody()
+    </div>
+
+    <script src="~/Identity/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Identity/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Identity/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<article class="wpk-page-section py-3">
+    <div class="text-black-50">
+        <header class="wpk-page-section-header container text-center">
+            <h2 class="@TitleClass">@TitleText</h2>
+            <p class="@TextContentClass">
+                @ChildContent
+            </p>
+        </header>
+    </div>
+</article>
+
+@code {
+    [Parameter]
+    public string TitleText { get; set; }
+
+    [Parameter]
+    public string TitleClass { get; set; }
+
+    [Parameter]
+    public string TextContentClass { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    protected override void OnInitialized()
+    {
+        TitleText = TitleText ?? string.Empty;
+        TitleClass = TitleClass ?? "wpk-page-section-title";
+        TextContentClass = TextContentClass ?? "wpk-page-section-text";
+
+
+        if (ChildContent == null)
+        {
+            //var t = new Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder();
+            ChildContent = @<p></p>;//new RenderFragment(t => t.AddContent(1, string.Empty));
+        }
+
+    }
+
+}

@@ -1,0 +1,64 @@
+﻿<article class="wpk-page-section" style="background: url('@ImageUrl') center;
+        background-size: cover">
+    <Row>
+        <Col Span="12">
+        <div class="wpk-media-panel">
+            @*<img src="@ImageUrl" />*@
+        </div>
+        </Col>
+
+        <Col Span="8">
+        <div class="px-5 py-3 text-left">
+            <header class="wpk-page-section-header container">
+                <h2 class="@TitleClass" style="color:@TextColor">@TitleText</h2>
+                <p class="@TextContentClass" style="color:@TextColor">
+                    @ChildContent
+                </p>
+            </header>
+            <hr class="my-4">
+            <p style="color:@TextColor">Learn more about our annual extra life event and sign up!</p>
+            <p class="lead">
+                <a  class="btn wpk-btn-highlight-fill" href="/ExtraLife" role="button">Learn more</a>
+            </p>
+        </div>
+        </Col>
+    </Row>
+    
+</article>
+
+@code {
+    [Parameter]
+    public string TitleText { get; set; }
+
+    [Parameter]
+    public string TitleClass { get; set; }
+
+    [Parameter]
+    public string TextContentClass { get; set; }
+
+    [Parameter]
+    public string ImageUrl { get; set; }
+
+    [Parameter]
+    public string TextColor { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    protected override void OnInitialized()
+    {
+        TitleText = TitleText ?? string.Empty;
+        TitleClass = TitleClass ?? "wpk-page-section-title";
+        TextContentClass = TextContentClass ?? "wpk-page-section-text";
+
+        TextColor = "var(--wpk-dark)";
+        ImageUrl = ImageUrl ?? "/css/img/media/lorenzo-herrera-games.jpg";
+        if (ChildContent == null)
+        {
+            //var t = new Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder();
+            ChildContent = @<p></p>;//new RenderFragment(t => t.AddContent(1, string.Empty));
+        }
+
+    }
+
+}
